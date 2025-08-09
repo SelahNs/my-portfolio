@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selehadin Nasir - Web Developer Portfolio</title>
+    <meta name="google-site-verification" content="Clrc1qsU_okgPz7yC8jTwlQEtcQsqXI8qhnkDPUaLCU" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <ul>
+            <li><a href="#welcome-section">About</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="welcome-section">
+            <h1>Selehadin Nasir: Full-Stack Developer</h1>
+            <p class="hero-subtitle">I use my Electrical & Computer Engineering background to build logical, efficient,
+                and well-structured web applications.</p>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title fade-in-element">My Projects</h2>
+            <div class="projects-grid">
+                <a href="https://cute-cassata-40e50c.netlify.app/" class="project-tile fade-in-element" target="_blank">
+                    <img src="technical-documentation-image-2.png"
+                        alt="Screenshot of a technical documentation page project" loading="lazy">
+                    <div class="project-info">
+                        <h3>Responsive Documentation Site</h3>
+                        <p>A clean and accessible documentation page built with semantic HTML, advanced CSS, and a focus
+                            on readability and user experience.</p>
+                    </div>
+                </a>
+                <a href="https://musical-alpaca-58efa1.netlify.app/" class="project-tile fade-in-element"
+                    target="_blank">
+                    <img src="productt-landing-image-1.png" alt="Screenshot of a product landing page project"
+                        loading="lazy">
+                    <div class="project-info">
+                        <h3>Interactive Product Landing Page</h3>
+                        <p>A modern landing page designed to convert users, demonstrating responsive design with Flexbox
+                            and user input with HTML5 forms.</p>
+                    </div>
+                </a>
+                <a href="https://github.com/SelahNs/my-portfolio" class="project-tile fade-in-element" target="_blank">
+                    <img src="Placeholder-image.png" alt="A placeholder image for the portfolio project's source code"
+                        loading="lazy">
+                    <div class="project-info">
+                        <h3>My Personal Portfolio</h3>
+                        <p>Developed from scratch using modern CSS including Grid, Flexbox, a 'frosted glass' sticky
+                            navbar, and a custom CSS variable design system.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="mytoolkit">
+            <h2 class="section-title fade-in-element">My Tech Stack</h2>
+            <div class="toolkit-grid fade-in-element">
+                <div class="toolkit-item">HTML5</div>
+                <div class="toolkit-item">CSS3</div>
+                <div class="toolkit-item">JavaScript (ES6+)</div>
+                <div class="toolkit-item">React</div>
+                <div class="toolkit-item">Node.js</div>
+                <div class="toolkit-item">Express</div>
+                <div class="toolkit-item">MongoDB</div>
+                <div class="toolkit-item">Git & GitHub</div>
+                <div class="toolkit-item">Responsive Design</div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title fade-in-element">Let's Connect</h2>
+            <p class="fade-in-element">
+                I'm actively seeking new opportunities. The best way to reach me is by email at
+                <span class="email-address">nasir.selehadin@gmail.com</span>.
+                Please feel free to connect with me on other platforms as well.
+            </p>
+            <div class="social-links fade-in-element">
+                <a href="https://www.linkedin.com/in/selehadin-nasir-a37731211" target="_blank"
+                    aria-label="Visit my LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i>
+                    LinkedIn</a>
+                <a href="https://github.com/SelahNs" id="profile-link" target="_blank"
+                    aria-label="Visit my GitHub profile"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                <a href="mailto:nasir.selehadin@gmail.com" aria-label="Send me an Email"><i class="fas fa-envelope"
+                        aria-hidden="true"></i> Email</a>
+                <a href="https://twitter.com/SelahNs_Dev" target="_blank" aria-label="Visit my Twitter profile"><i
+                        class="fab fa-twitter" aria-hidden="true"></i> Twitter</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Selehadin Nasir. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- SMOOTH SCROLL FOR ANCHOR LINKS ---
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            for (const link of navLinks) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+            // --- FADE-IN ANIMATION ON SCROLL ---
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+            const animationObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            const elementsToAnimate = document.querySelectorAll('.fade-in-element');
+            elementsToAnimate.forEach(el => animationObserver.observe(el));
+        });
+    </script>
+</body>
+
+</html>
